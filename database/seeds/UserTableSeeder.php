@@ -16,6 +16,7 @@ class UserTableSeeder extends Seeder
         		'name'=>Str::random(10),
         		'email'=>Str::random(10).'@gmail.com',
         		'password'=>bcrypt('secret'),
+                'type_user_id'=>1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
 
@@ -23,6 +24,7 @@ class UserTableSeeder extends Seeder
         	DB::table('users')->insert([
         		'name'=>'test',
         		'email'=>'test@test.com',
+                'type_user_id'=>2,
         		'password'=>bcrypt('test'),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()

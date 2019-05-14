@@ -66,7 +66,7 @@ class PublicationController extends Controller
             if($publication->save()){
                 return View('publication.index');
             }else{
-
+                //TODO
             }
 
 

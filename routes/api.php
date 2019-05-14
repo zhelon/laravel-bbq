@@ -18,4 +18,9 @@ Route::get('/user', function (Request $request) {
 });
 
 
-Route::get('/login/{email}/{password}', 'UserApiController@doLogin');
+Route::get('/user/login/{email}/{password}', 'UserApiController@doLogin');
+Route::get('/user/get/{id}/{auth_token}', 'UserApiController@getUserProfile');
+
+
+Route::get('/publication/all/{auth_token}','PublicationApiController@getAll');
+Route::get('/publication/get/{id}/{auth_token}','PublicationApiController@getById');

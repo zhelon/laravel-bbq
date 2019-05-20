@@ -69,7 +69,6 @@ class PublicationController extends Controller
                 //TODO
             }
 
-
         }
     }
 

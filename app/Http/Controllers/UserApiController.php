@@ -28,13 +28,13 @@ class UserApiController extends Controller{
 
 	public function getUserProfile(Request $request){
 		$auth_token = $request->auth_token;
-    	$user_id = $request->id:
+    	$user_id = $request->id;
     	$user = User::where('auth_token',$auth_token);
     	if($user != null){
     		$user_profile = User::find($user_id);
-    		//TODO: Check is active
+    		//TODO Check is active
     		if($user_profile != null){
-    			return response()->json(['data' => $user_profile->toArray()],200)
+    			return response()->json(['data' => $user_profile->toArray()],200);
     		}
     	}
 	}

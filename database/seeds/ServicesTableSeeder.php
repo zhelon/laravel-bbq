@@ -18,10 +18,10 @@ class ServicesTableSeeder extends Seeder
         	'total_price'	=>'8000',
         	'address'		=> 'Carrera 781',
         	'date_service' 	=> Carbon::now(),
-        	'publication_id'=> '1'
-        	'client_confirmed' => 1,
-        	'bbq_confirmed' => 0,
-        	'status' 		=> 'created';
+        	'publication_id'=> 1,
+        	'client_confirmed' => true,
+        	'bbq_confirmed' => false,
+        	'status' 		=> 'created',
         	'created_at' 	=> Carbon::now(),
             'updated_at' 	=> Carbon::now()
         ]);

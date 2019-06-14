@@ -23,8 +23,8 @@ class PublicationController extends Controller
     public function index()
     {
         if (Auth::check()){
-            $data = Publication::where('user_id', Auth::getUser()->id);
-            return view('publication.index'); 
+            $publications = Publication::where('user_id', Auth::getUser()->id)->orderBy('created_at', 'desc')->paginate(10);
+            return view('publication.index', ['publications' => $publications]); 
         }
     }
 
@@ -60,11 +60,12 @@ class PublicationController extends Controller
             $description = $request->input('description');
             $publication = new Publication;
             $publication->description = $description;
-            $publication->file_name = $filename;
+            $publication->file_name = 'files/'.$id.'/'.$filename;
             $publication->user_id = $id;
 
             if($publication->save()){
-                return View('publication.index');
+                $publications = Publication::where('user_id', $id)->orderBy('created_at', 'desc')->paginate(10);
+                return view('publication.index', ['publications' => $publications]);
             }else{
                 //TODO
             }

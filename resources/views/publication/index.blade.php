@@ -12,17 +12,18 @@
             </div>
         @endif
 
+<div class="row">
+
         @foreach($publications as $p)
-            <div class="card">
-              <img src="{{asset("/storage/app/{$p->file_name}") }}" alt="{{$p->file_name}}" class="card-img-top">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">{{$p->description}}</p>
-                <a href="#" class="btn btn-primary">Detail</a>
-              </div>
-            </div>
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{URL('public/storage/app/{$p->file_name}')}}" alt="{{$p->file_name}}" />
+          <div class="card-body">
+            <p class="card-text">{{$p->description}}</p>
+          </div>
+        </div>
+
         @endforeach
     {{ $publications->links() }}
-
-
+</div>
 @endsection

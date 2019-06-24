@@ -24,6 +24,7 @@ Route::get('/user/get/{id}/{auth_token}', 'UserApiController@getUserProfile');
 
 Route::get('/publication/all/{auth_token}','PublicationApiController@getAll');
 Route::get('/publication/get/{id}/{auth_token}','PublicationApiController@getById');
+Route::post('/publication/create','PublicationApiController@create');
 
 
 Route::post('/service/confirm', 'ServiceApiController@confirmService');

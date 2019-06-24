@@ -18,8 +18,10 @@ class CreatePublicationTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('active')->default(1);
+            $table->integer('showable')->default(1);
+            $table->dateTime('date_publication')->nullable();
             $table->text('description');
-            $table->string('file_name');
+            $table->string('file_name')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

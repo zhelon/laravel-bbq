@@ -23,7 +23,7 @@ class PublicationController extends Controller
     public function index()
     {
         if (Auth::check()){
-            $publications = Publication::where('user_id', Auth::getUser()->id)->orderBy('created_at', 'desc')->paginate(10);
+            $publications = Publication::where('user_id', Auth::getUser()->id)->where('active',1)->where('showable', 1)->orderBy('created_at', 'desc')->paginate(10);
             return view('publication.index', ['publications' => $publications]); 
         }
     }

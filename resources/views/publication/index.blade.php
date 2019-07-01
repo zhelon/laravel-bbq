@@ -17,7 +17,7 @@
         @foreach($publications as $p)
 
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{URL('public/storage/app/{$p->file_name}')}}" alt="{{$p->file_name}}" />
+            <img class="card-img-top" src="{{asset($p->file_name) }}" alt="{{$p->file_name}}" />
           <div class="card-body">
             <p class="card-text">{{$p->description}}</p>
           </div>

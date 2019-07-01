@@ -50,17 +50,20 @@ class PublicationController extends Controller
         if (Auth::check()){
             $id = Auth::getUser()->id;
             $uploadedFile = $request->file('image');
+            $imageName = time().'.'.request()->image->getClientOriginalExtension();
+            request()->image->move(public_path('files/'.$id), $imageName);
+            /*
             $filename = time().$uploadedFile->getClientOriginalName();
             Storage::disk('local')->putFileAs(
                 'files/'.$id,
                 $uploadedFile,
                 $filename
-              );
+              );*/
 
             $description = $request->input('description');
             $publication = new Publication;
             $publication->description = $description;
-            $publication->file_name = 'files/'.$id.'/'.$filename;
+            $publication->file_name = 'files/'.$id.'/'.$imageName;
             $publication->user_id = $id;
 
             if($publication->save()){
